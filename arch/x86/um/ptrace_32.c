@@ -197,7 +197,7 @@ long subarch_ptrace(struct task_struct *child, long request,
 					     0, sizeof(struct user_fxsr_struct),
 					     datap);
 	default:
-		ret = -EIO;
+		ret = subarch_ptrace_legacy(child, request, addr, data);
 	}
 	return ret;
 }
